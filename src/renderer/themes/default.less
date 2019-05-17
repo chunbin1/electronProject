@@ -1,16 +1,68 @@
-@primary-color: #75c4bb; // 全局主色
-@link-color: #75c4bb; // 链接色
-@success-color: #52c41a; // 成功色
-@warning-color: #faad14; // 警告色
-@error-color: #f5222d; // 错误色
-@font-size-base: 14px; // 主字号
-@heading-color: rgba(0, 0, 0, 0.85); // 标题色
-@text-color: rgba(0, 0, 0, 0.65); // 主文本色
-@text-color-secondary : #666; // 次文本色
-@disabled-color : rgba(0, 0, 0, .25); // 失效色
-@border-radius-base: 4px; // 组件/浮层圆角
-@border-color-base: #d9d9d9; // 边框色
-@box-shadow-base: 0 2px 8px rgba(0, 0, 0, 0.15); // 浮层阴影
-@transition-base: all 0.5s cubic-bezier(0.075, 0.82, 0.135, 1); // 动画
-@menu-bg: none;
-@menu-item-active-bg: none;
+// -------------------颜色---------------------
+@color-main: #01a2e9; // 主色、跳转文字、button
+@color-function: #98adcf; // 导航菜单中未选中的文字/未选择的选项文字/功能性文字
+@color-text-main: #becedd; // 普通文案(主要文字。小标题）、列表标题
+@color-text-second: #7899ba; // 普通文案(次要文字，小标签)\列表正文\输入框里面的文字 antd: control the text color in active and hover states
+@color-selected: #374866; // button选中后状态(左侧导航/二级菜单选中后）
+@base-color-white: #ffffff; // 大标题/鼠标在图标上颜色/导航中当前选择的文字颜色
+
+// hover color
+
+// 底色
+@nav-1: #272c38; // 顶部一级导航底色/内容卡片底色。大标题底色
+@nav-2: #2c3441; // 二级导航底色/弹窗底部有button时候的底色
+@bg-card: #21252f; // 内容卡片以下层
+
+// border
+@color-body-bg: #1d1e1f;
+@color-deepbg-border: #465877; //在底色# 272C38上的边框
+@color-tintbg-border: #5e6e89; //在底色# 2C3441上的边框
+
+// disabled
+@disabled-color: #505e6d;
+
+// -------------------字体尺寸---------------------
+@font-size-1: 18px; // 一级导航文字（顶部菜单）
+@font-size-2: 16px; //二级导航文字、左侧菜单、一般大标题、按钮文字、部分文字选项、提示框文字
+@font-size-3: 14px; //二级标题、三级导航文字、正文（正文内容、列表正文）\ ICON文字
+@font-size-4: 12px; //小标签、提示信息、辅助性文字
+
+@base-item-height: 50px;
+@base-header-height: 52px;
+
+// global
+@color-text-title: @base-color-white;
+
+// modal
+@modal-header-bg: @nav-2;
+@modal-footer-bg: @nav-2;
+
+// label
+@label-required-color: @color-text-main;
+@label-color: @color-text-main;
+
+// input
+@input-placeholder-color: @color-text-second;
+@input-bg: @nav-1;
+
+// 边框颜色
+@border-color-base: @color-selected;
+@border-color-split: @color-selected;
+
+// 背景颜色
+@body-background: @color-body-bg;
+@background-color-light: @nav-1;
+@layout-header-background: @nav-1;
+@layout-body-background: @color-body-bg;
+@component-background: @nav-1;
+@disabled-bg: fade(@nav-1, 50%);
+
+// 字体颜色
+@text-color: @color-function;
+@text-color-secondary: @color-text-main;
+@border-color-split: @color-deepbg-border;
+
+//菜单
+@menu-item-color: @color-function;
+@item-active-bg: @color-selected;
+@item-hover-bg: @color-selected;

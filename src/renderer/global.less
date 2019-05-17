@@ -1,0 +1,28 @@
+@import './themes/index.less';
+
+body {
+  /* -webkit-app-region: drag; */
+  -webkit-user-select: none;
+  overflow: hidden;
+  font: caption;
+  width: 100vw;
+  height: 100vh;
+  // min-width: 1040px;
+  // min-height: 715px;
+  background: none;
+  background-attachment: fixed;
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+
+  :global{
+    .ant-input{
+      background-color:@color-main;
+    }
+  }
+}
+
+#root{
+  height: 100vh;
+}
+

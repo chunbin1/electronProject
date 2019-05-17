@@ -1,10 +1,14 @@
 export default [
   {
     path: '/',
-    component: './home/Home',
+    component: '../layout/BasicLayout',
+    redict:'/home',
+    routes:[
+      { path: '/', redirect: '/home' },
+      {
+        path:'/home',
+        component:'./home/Home'
+      }
+    ]
   },
-  {
-    path:'/home',
-    component:'./home/Home'
-  }
 ]
