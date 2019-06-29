@@ -1,5 +1,5 @@
 {
-  "extends": ["tslint:recommended","tslint:react"],
+  "extends": ["tslint:recommended","tslint-react"],
   "rules": {
     "max-line-length": {
       "options": [
@@ -14,7 +14,11 @@
     "ordered-imports": false,
     "no-console":true,
     "no-empty":true,
-    "no-unused-variable":true
+    "no-unused-variable":true,
+    "jsx-no-multiline-js":false,
+    "jsx-no-lambda":false,
+    "no-shadowed-variable":false,
+    "quotemark":[true,"single","jsx-double"]
   },
   "jsRules": {
     "max-line-length": {
