@@ -4,14 +4,16 @@ import Counter from '@/components/Counter';
 import { Input, Button } from 'antd';
 import { ipcRenderer } from 'electron';
 import styles from './home.less';
+import IconFont from '@/components/IconFont';
 
 function Home() {
   const [str, setStr] = useState('');
-  const sendMsg = (str:string):void => {
-    ipcRenderer.send('saveData', str);    
-  }
+  const sendMsg = (str: string): void => {
+    ipcRenderer.send('saveData', str);
+  };
   return (
     <>
+    <IconFont type='icon-totop'></IconFont>
       <div
         className={styles.home}
         onClick={() => {
@@ -28,11 +30,7 @@ function Home() {
         }}
         value={str}
       />
-      <Button
-        onClick={()=>sendMsg(str)}
-      >
-        把东西输入到文件中
-      </Button>
+      <Button onClick={() => sendMsg(str)}>把东西输入到文件中</Button>
     </>
   );
 }
