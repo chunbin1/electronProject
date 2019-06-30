@@ -2,13 +2,21 @@ export default [
   {
     path: '/',
     component: '../layout/BasicLayout',
-    redict:'/home',
-    routes:[
-      { path: '/', redirect: '/home' },
+    redict: '/home',
+    routes: [
+      { path: '/', redirect: '/top' },
       {
-        path:'/home',
-        component:'./home/Home'
-      }
-    ]
+        path: '/top',
+        component: './Top',
+      },
+      {
+        path: '/north',
+        component: './North',
+      },
+      {
+        path: '/search',
+        component: './Search',
+      },
+    ],
   },
-]
+];

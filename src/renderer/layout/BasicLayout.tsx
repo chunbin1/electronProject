@@ -1,36 +1,36 @@
 import * as React from 'react';
 import { Layout } from 'antd';
-import { TouchBarLabel } from 'electron';
-import TabsFooter, { routerArr } from '@/components/TabsFooter';
+import TabsFooter, { IRouterArr } from '@/components/TabsFooter';
+import styles from './index.less';
 
-const { Header, Footer, Sider, Content } = Layout;
-
-const routerArr: Array<routerArr> = [
+const { Header, Footer, Content } = Layout;
+const routerArr: IRouterArr[] = [
   {
-    route: '/list',
-    icon: 'icon-totop',
+    icon: 'icon-top',
+    route: '/top',
   },
   {
-    route: '/search',
-    icon: 'icon-search',
-  },
-  {
-    route: '/north',
     icon: 'icon-north',
+    route: '/north',
+  },
+  {
+    icon: 'icon-search',
+    route: '/search',
   },
 ];
 
-export default function BasicLayout(props) {
+export default function BasicLayout(props: any) {
+  const {
+    location: { pathname },
+  } = props;
   return (
-    <Layout style={{ height: '100%' }}>
+    <Layout style={{ height: '100%' }} className={styles.basicLayout}>
       {/* <Sider>Sider</Sider> */}
-      <Layout>
-        <Header>basiclayout</Header>
-        <Content>{props.children}</Content>
-        <Footer>
-          <TabsFooter routerArr={routerArr} />
-        </Footer>
-      </Layout>
+      <Header>basiclayout</Header>
+      <Content>{props.children}</Content>
+      <Footer>
+        <TabsFooter routerArr={routerArr} pathname={pathname} />
+      </Footer>
     </Layout>
   );
 }
