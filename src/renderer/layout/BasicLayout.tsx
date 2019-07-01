@@ -26,7 +26,7 @@ export default function BasicLayout(props: any) {
   return (
     <Layout style={{ height: '100%' }} className={styles.basicLayout}>
       {/* <Sider>Sider</Sider> */}
-      <Header>basiclayout</Header>
+      {/* <Header>basiclayout</Header> */}
       <Content>{props.children}</Content>
       <Footer>
         <TabsFooter routerArr={routerArr} pathname={pathname} />
