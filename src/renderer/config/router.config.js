@@ -1,10 +1,19 @@
 export default [
   {
+    path:'/detail',
+    routes:[
+      {
+        path:'/detail',
+        component:'./Detail'
+      }
+    ]
+  },
+
+  {
     path: '/',
     component: '../layout/BasicLayout',
-    redict: '/home',
     routes: [
-      { path: '/', redirect: '/top' },
+      { path: '/home', redirect: '/top' },
       {
         path: '/top',
         component: './Top',
@@ -19,4 +28,5 @@ export default [
       },
     ],
   },
+
 ];

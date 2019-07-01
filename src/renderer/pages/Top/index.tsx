@@ -1,6 +1,8 @@
 import React, { useEffect, useCallback } from 'react';
 import styles from './index.less';
 import { connect } from 'dva';
+import { ipcRenderer } from 'electron';
+
 import router from 'umi/router';
 import Link from 'umi/link';
 
@@ -37,8 +39,7 @@ function TopItems(props: ITopItemsProps) {
   const { item } = props;
   const clickHandler = () => {
     const { html_url } = item;
-
-    // router.push(html_url);
+    ipcRenderer.send('showDetail', html_url);
   };
   return (
     <div className={styles.topItems} onClick={clickHandler}>
