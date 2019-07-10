@@ -18,6 +18,7 @@
     "jsx-no-multiline-js":false,
     "jsx-no-lambda":false,
     "no-shadowed-variable":false,
+    "object-literal-sort-keys":false,  
     "quotemark":[true,"single","jsx-double"]
   },
   "jsRules": {

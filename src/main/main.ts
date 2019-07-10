@@ -15,6 +15,7 @@ function createWindow() {
   detailWindow = new BrowserWindow({
     parent: mainWindow,
     show: false,
+    width: 1036,
   });
 
   if (process.env.NODE_ENV === 'development') {

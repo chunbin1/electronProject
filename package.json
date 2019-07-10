@@ -73,6 +73,7 @@
     "classnames": "^2.2.6",
     "express": "^4.16.4",
     "http-proxy": "^1.17.0",
+    "lodash": "^4.17.13",
     "umi-plugin-react": "^1.7.6"
   },
   "electronWebpack": {

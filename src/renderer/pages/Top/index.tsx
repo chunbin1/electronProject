@@ -1,14 +1,14 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback, useRef } from 'react';
 import styles from './index.less';
 import { connect } from 'dva';
 import { ipcRenderer } from 'electron';
-
-import router from 'umi/router';
-import Link from 'umi/link';
+import _ from 'lodash';
+import { Spin } from 'antd';
 
 export interface ITopProps {
   dispatch: ({ type: string, payload: any }) => {};
   items: any[];
+  page: number;
 }
 
 export interface ITopItemsProps {
@@ -18,6 +18,10 @@ export interface ITopItemsProps {
 
 function Top(props: ITopProps) {
   const { dispatch, items } = props;
+  const ref = useRef(null);
+  const pageData = useRef(1);
+  const { page } = props;
+  pageData.current = page;
   useEffect(() => {
     dispatch({
       type: 'top/queryTopList',
@@ -26,11 +30,33 @@ function Top(props: ITopProps) {
       },
     });
   }, []);
+
+  function scrollHandler() {
+    const { scrollHeight, offsetHeight, scrollTop } = ref.current;
+    if (offsetHeight + scrollTop + 10 > scrollHeight) {
+      dispatch({
+        type: 'top/queryTopList',
+        payload: {
+          page: pageData.current + 1,
+        },
+      });
+    }
+  }
+  useEffect(() => {
+    ref.current.addEventListener('scroll', _.throttle(scrollHandler, 400));
+    return ref.current.removeEventListener(
+      'scroll',
+      _.throttle(scrollHandler, 400)
+    );
+  }, [ref, pageData]);
   return (
-    <div className={styles.top}>
+    <div className={styles.top} ref={ref}>
       {items.map((item, index) => (
         <TopItems key={item.name} item={item} index={index + 1} />
       ))}
+      <div style={{ textAlign: 'center' }}>
+        <Spin spinning={true} />
+      </div>
     </div>
   );
 }
@@ -39,7 +65,7 @@ function TopItems(props: ITopItemsProps) {
   const { item } = props;
   const clickHandler = () => {
     const { html_url } = item;
-    ipcRenderer.send('showDetail', html_url);
+    ipcRenderer.send('showDetail', html_url); // 发送给main进程
   };
   return (
     <div className={styles.topItems} onClick={clickHandler}>
@@ -61,4 +87,5 @@ function TopItems(props: ITopItemsProps) {
 
 export default connect(({ top }) => ({
   items: top.items,
+  page: top.page,
 }))(Top);
